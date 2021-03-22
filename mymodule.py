@@ -1,11 +1,17 @@
 def check_int_number(x):
-    """Проверим правильность ввода с клавиатуры
-    числа, является ли оно типом int."""
+    """Проверяет правильность ввода.
+    
+    Ключевые аргументы:
+        x -- какие-либо данные.
+
+    Возвращает:
+        number(x) -- результат всех
+        проверок.
+
+    """
 
     def view_bad_number(x):
-        """Проверяем что привело к ошибке в 
-        преобразовании ввода в int"""
-        #Проверка на дробное число
+        #Проверка на дробное число:
         if x.find('.') != -1 and x.count('.') == 1: 
             return f"{x} - дробное число."
         elif x:
@@ -17,7 +23,7 @@ def check_int_number(x):
         try:
             x = int(x)
         except ValueError:
-            # Проверяем что привело к ошибке
+            # Проверяем что привело к ошибке:
             return view_bad_number(x)
         except OverflowError:
             return "Число слишком большое."
@@ -25,6 +31,7 @@ def check_int_number(x):
             return x
     
     return number(x)
+
 
 def check_float_number(x):
     try:
@@ -35,6 +42,7 @@ def check_float_number(x):
         return f"{x} - число слишком большое."
     else:
         return x
+
 
 def read_file_b(road_to_file):
     try:
@@ -47,6 +55,7 @@ def read_file_b(road_to_file):
     except FileNotFoundError:
         print("Неверный путь к файлу или такого файла не существует.")
         return False
+
 
 def write_file_b(road_to_file, text):
     try:
